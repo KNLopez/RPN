@@ -3,37 +3,37 @@ export const RPN = (seq) =>  {
     return;
   }
 
-  var operands = ["+", "-", "*", "/"];
-  var stack = [];
-  var i = 0;
+  let operands = ["+", "-", "*", "/"];
+  let stack = [];
+  let i = 0;
 
   stack.push(seq[i]);
   i++;
 
   while (i <= seq.length) {
-    var item = seq[i];
-    var index = operands.indexOf(item);
+    let item = seq[i];
+    let index = operands.indexOf(item);
     if (index < 0) {
       stack.push(seq[i]);
     } else {
-      if (index == 0) {
-        var a = parseInt(stack.splice(-1)[0], 10);
-        var b = parseInt(stack.splice(-1)[0], 10);
+      if (index === 0) {
+        let a = parseInt(stack.splice(-1)[0], 10);
+        let b = parseInt(stack.splice(-1)[0], 10);
         stack.push(a + b);
       }
-      if (index == 1) {
-        var a = parseInt(stack.splice(-1)[0], 10);
-        var b = parseInt(stack.splice(-1)[0], 10);
+      if (index === 1) {
+        let a = parseInt(stack.splice(-1)[0], 10);
+        let b = parseInt(stack.splice(-1)[0], 10);
         stack.push(b - a);
       }
-      if (index == 2) {
-        var a = parseInt(stack.splice(-1)[0], 10);
-        var b = parseInt(stack.splice(-1)[0], 10);
+      if (index === 2) {
+        let a = parseInt(stack.splice(-1)[0], 10);
+        let b = parseInt(stack.splice(-1)[0], 10);
         stack.push(a * b);
       }
-      if (index == 3) {
-        var a = parseInt(stack.splice(-1)[0], 10);
-        var b = parseInt(stack.splice(-1)[0], 10);
+      if (index === 3) {
+        let a = parseInt(stack.splice(-1)[0], 10);
+        let b = parseInt(stack.splice(-1)[0], 10);
         stack.push(b / a);
       }
     }
