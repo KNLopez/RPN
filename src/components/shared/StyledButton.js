@@ -2,7 +2,7 @@ import { Button, withStyles } from "@material-ui/core";
 
 export const StyledButton = withStyles(theme => ({
   root: {
-    height: 55,
+    height: "100%",
     color: "#fff",
     textTransform: "capitalize",
     backgroundColor: "#79cea1",
