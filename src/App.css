@@ -2,7 +2,7 @@
   min-height: 100vh;
 }
 
-.green-title {
+.MuiTypography-root.green-title {
   max-width: 380px;
   color: #93edd9;
   font-family: "Roboto", sans-serif;
