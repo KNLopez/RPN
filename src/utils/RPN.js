@@ -1,4 +1,4 @@
-export const RPN = (seq) =>  {
+export const RPN = seq => {
   if (seq.length <= 2) {
     return;
   }
@@ -16,24 +16,15 @@ export const RPN = (seq) =>  {
     if (index < 0) {
       stack.push(seq[i]);
     } else {
+      let a = parseInt(stack.splice(-1)[0], 10);
+      let b = parseInt(stack.splice(-1)[0], 10);
       if (index === 0) {
-        let a = parseInt(stack.splice(-1)[0], 10);
-        let b = parseInt(stack.splice(-1)[0], 10);
         stack.push(a + b);
-      }
-      if (index === 1) {
-        let a = parseInt(stack.splice(-1)[0], 10);
-        let b = parseInt(stack.splice(-1)[0], 10);
+      } else if (index === 1) {
         stack.push(b - a);
-      }
-      if (index === 2) {
-        let a = parseInt(stack.splice(-1)[0], 10);
-        let b = parseInt(stack.splice(-1)[0], 10);
+      } else if (index === 2) {
         stack.push(a * b);
-      }
-      if (index === 3) {
-        let a = parseInt(stack.splice(-1)[0], 10);
-        let b = parseInt(stack.splice(-1)[0], 10);
+      } else if (index === 3) {
         stack.push(b / a);
       }
     }
@@ -41,4 +32,4 @@ export const RPN = (seq) =>  {
   }
 
   return parseInt(stack[0], 10);
-}
+};

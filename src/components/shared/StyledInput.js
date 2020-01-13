@@ -1,5 +1,5 @@
-import React from "react"
-import {  TextField, makeStyles, createStyles } from "@material-ui/core";
+import React from "react";
+import { TextField, makeStyles, createStyles } from "@material-ui/core";
 const customInputStyle = makeStyles(theme =>
   createStyles({
     root: {
@@ -23,13 +23,10 @@ const customInputStyle = makeStyles(theme =>
   })
 );
 
-export  const StyledInput = props => {
-    const classes = customInputStyle(props);
+export const StyledInput = props => {
+  const classes = customInputStyle(props);
 
-    return (
-      <TextField
-        InputProps={{ classes, disableUnderline: true }}
-        {...props}
-      />
-    );
-  };
+  return (
+    <TextField InputProps={{ classes, disableUnderline: true }} {...props} />
+  );
+};

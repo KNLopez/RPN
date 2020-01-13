@@ -1,5 +1,4 @@
-import { Button, withStyles } from '@material-ui/core'
-
+import { Button, withStyles } from "@material-ui/core";
 
 export const StyledButton = withStyles(theme => ({
   root: {
@@ -12,4 +11,3 @@ export const StyledButton = withStyles(theme => ({
     }
   }
 }))(Button);
-

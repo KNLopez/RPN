@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import {  Grid, Box, Typography } from "@material-ui/core";
+import { Grid, Box, Typography } from "@material-ui/core";
 import { StyledButton } from "./shared/StyledButton";
 import { StyledInput } from "./shared/StyledInput";
 import { StyledSelect } from "./shared/StyledSelect";
-
 
 const Screen2 = ({ handleClick, formattedState, solution }) => {
   const [state, setState] = useState({
@@ -12,7 +11,7 @@ const Screen2 = ({ handleClick, formattedState, solution }) => {
   });
   const { operand, operator } = state;
 
-  const [withError, setError] = useState(false)
+  const [withError, setError] = useState(false);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -20,13 +19,13 @@ const Screen2 = ({ handleClick, formattedState, solution }) => {
     setState({ ...state, [name]: value });
   };
 
-  const handleSubmit = () =>  {
-    setError(false)
-    if (operand && operator ) handleClick([...operand, ...operator]);
+  const handleSubmit = () => {
+    setError(false);
+    if (operand && operator) handleClick([...operand, ...operator]);
     else {
       setError(true);
     }
-  }
+  };
 
   return (
     <Grid
@@ -34,7 +33,7 @@ const Screen2 = ({ handleClick, formattedState, solution }) => {
       direction="column"
       alignItems="center"
       justify="center"
-      style={{ minHeight: "100vh" }}
+      className="main-container"
     >
       <Box
         mb={6}
@@ -42,14 +41,12 @@ const Screen2 = ({ handleClick, formattedState, solution }) => {
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
+        className="notation-container"
       >
         <Grid spacing={2} container alignItems="center" justify="center">
           {formattedState.map(item => (
             <Grid item key={`${item}+${Math.random() * 9999}`}>
-              <Box
-                p={6}
-                style={{ backgroundColor: "#ecf5f7", borderRadius: 10 }}
-              >
+              <Box p={6} className="container-box">
                 <Typography variant="h4"> {item}</Typography>
               </Box>
             </Grid>
@@ -58,16 +55,7 @@ const Screen2 = ({ handleClick, formattedState, solution }) => {
         <Typography variant="h2" align="center">
           =
         </Typography>
-        <Typography
-          variant="h2"
-          align="center"
-          style={{
-            maxWidth: 380,
-            color: "#93edd9",
-            fontFamily: "'Roboto', sans-serif",
-            fontWeight: 100
-          }}
-        >
+        <Typography variant="h2" align="center" className="green-title">
           {solution}
         </Typography>
       </Box>
@@ -101,9 +89,7 @@ const Screen2 = ({ handleClick, formattedState, solution }) => {
         </Grid>
       </Grid>
       {withError && (
-        <Typography style={{ color: "red" }}>
-          Please fill in all fields
-        </Typography>
+        <Typography className="error">Please fill in all fields</Typography>
       )}
     </Grid>
   );

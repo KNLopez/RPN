@@ -1,5 +1,12 @@
 import React from "react";
-import {  makeStyles, createStyles,  FormControl, InputLabel, Select, MenuItem } from "@material-ui/core";
+import {
+  makeStyles,
+  createStyles,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem
+} from "@material-ui/core";
 const customInputStyle = makeStyles(theme =>
   createStyles({
     root: {
@@ -17,12 +24,12 @@ const customInputStyle = makeStyles(theme =>
   })
 );
 
-export const StyledSelect = ({label, options, ...props}) => {
+export const StyledSelect = ({ label, options, ...props }) => {
   const classes = customInputStyle(props);
 
   return (
     <FormControl fullWidth variant="filled" classes={classes}>
-      <InputLabel >{label}</InputLabel>
+      <InputLabel>{label}</InputLabel>
       <Select {...props} disableUnderline>
         {options.map(option => (
           <MenuItem value={option}> {option} </MenuItem>

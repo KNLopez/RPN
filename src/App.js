@@ -1,9 +1,7 @@
-import React from 'react';
-import './App.css';
-import ReversePolishNotation from './main/ReversePolishNotation.container';
+import React from "react";
+import "./App.css";
+import ReversePolishNotation from "./main/ReversePolishNotation.container";
 
-function App() {
-  return <ReversePolishNotation />;
-}
+const App = () => <ReversePolishNotation />;
 
 export default App;

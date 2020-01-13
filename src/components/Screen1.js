@@ -1,15 +1,18 @@
-import React, { useState } from 'react'
-import { Typography, Grid, Box } from '@material-ui/core'
-import { StyledButton } from './shared/StyledButton'
-import { StyledInput } from './shared/StyledInput'
+import React, { useState } from "react";
+import { Typography, Grid, Box } from "@material-ui/core";
+import { StyledButton } from "./shared/StyledButton";
+import { StyledInput } from "./shared/StyledInput";
 
-const Screen1 = ({handleClick}) => {
+const Screen1 = ({ handleClick }) => {
+  const [operand, setOperand] = useState("");
 
-  const [operand, setOperand] = useState("")
+  const handleChange = e => {
+    setOperand(e.target.value);
+  };
 
-  const handleChange = (e) => {
-    setOperand(e.target.value)
-  }
+  const handleSubmit = () => {
+    handleClick(operand);
+  };
 
   return (
     <Grid
@@ -17,19 +20,10 @@ const Screen1 = ({handleClick}) => {
       direction="column"
       alignItems="center"
       justify="center"
-      style={{ minHeight: "100vh" }}
+      className="main-container"
     >
       <Box mb={6}>
-        <Typography
-          variant="h3"
-          align="center"
-          style={{
-            maxWidth: 380,
-            color: "#93edd9",
-            fontFamily: "'Roboto', sans-serif",
-            fontWeight: 100,
-          }}
-        >
+        <Typography variant="h3" align="center" className="green-title">
           Expression Evaluator
         </Typography>
       </Box>
@@ -45,13 +39,13 @@ const Screen1 = ({handleClick}) => {
           />
         </Grid>
         <Grid item md={6} xs={12}>
-          <StyledButton fullWidth onClick={() => handleClick(operand)}>
+          <StyledButton fullWidth onClick={handleSubmit}>
             Add Number
           </StyledButton>
         </Grid>
       </Grid>
     </Grid>
   );
-}
+};
 
-export default Screen1
+export default Screen1;

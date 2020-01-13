@@ -1,15 +1,9 @@
-import React from 'react'
-import Container from '@material-ui/core/Container';
-import Screen1 from '../components/Screen1'
-import Screen2 from '../components/Screen2';
+import React from "react";
+import Container from "@material-ui/core/Container";
+import Screen1 from "../components/Screen1";
+import Screen2 from "../components/Screen2";
 
-
-
-const ReversePolishNotationPresenter = ({
-  solution,
-  stack,
-  updateState
-}) => {
+const ReversePolishNotationPresenter = ({ solution, stack, updateState }) => {
   return (
     <Container maxWidth="sm">
       {stack.length > 0 && (
@@ -24,4 +18,4 @@ const ReversePolishNotationPresenter = ({
   );
 };
 
-export default ReversePolishNotationPresenter
+export default ReversePolishNotationPresenter;
