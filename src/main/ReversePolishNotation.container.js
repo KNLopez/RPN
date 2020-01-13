@@ -11,7 +11,7 @@ const ReversePolishNotationContainer = () => {
 
   const getSolution = () => {
     const response = RPN(stack)
-    if(response) setSolution(response);
+    if(typeof response === "number") setSolution(response);
     else{
       setSolution(stack[0]);
     }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {  Grid, Select, MenuItem, Paper, Box, Typography } from "@material-ui/core";
+import {  Grid, Select, MenuItem, Paper, Box, Typography, Snackbar } from "@material-ui/core";
 import { StyledButton } from "./shared/StyledButton";
 import { StyledInput } from "./shared/StyledInput";
 import { StyledSelect } from "./shared/StyledSelect";
@@ -10,6 +10,9 @@ const Screen2 = ({ handleClick, formattedState, solution }) => {
     operand: "",
     operator: ""
   });
+  const { operand, operator } = state;
+
+  const [withError, setError] = useState(false)
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -17,7 +20,13 @@ const Screen2 = ({ handleClick, formattedState, solution }) => {
     setState({ ...state, [name]: value });
   };
 
-  const { operand, operator } = state;
+  const handleSubmit = () =>  {
+    setError(false)
+    if (operand && operator ) handleClick([...operand, ...operator]);
+    else {
+      setError(true);
+    }
+  }
 
   return (
     <Grid
@@ -37,7 +46,10 @@ const Screen2 = ({ handleClick, formattedState, solution }) => {
         <Grid spacing={2} container alignItems="center" justify="center">
           {formattedState.map(item => (
             <Grid item key={`${item}+${Math.random() * 9999}`}>
-              <Box p={6} style={{ backgroundColor: "#ecf5f7", borderRadius: 10 }}>
+              <Box
+                p={6}
+                style={{ backgroundColor: "#ecf5f7", borderRadius: 10 }}
+              >
                 <Typography variant="h4"> {item}</Typography>
               </Box>
             </Grid>
@@ -59,6 +71,7 @@ const Screen2 = ({ handleClick, formattedState, solution }) => {
           {solution}
         </Typography>
       </Box>
+
       <Grid container spacing={2}>
         <Grid item md={4} xs={6}>
           <StyledSelect
@@ -82,14 +95,16 @@ const Screen2 = ({ handleClick, formattedState, solution }) => {
           />
         </Grid>
         <Grid item md={4} xs={12}>
-          <StyledButton
-            fullWidth
-            onClick={() => handleClick([operand, operator])}
-          >
+          <StyledButton fullWidth onClick={handleSubmit}>
             Add Operation
           </StyledButton>
         </Grid>
       </Grid>
+      {withError && (
+        <Typography style={{ color: "red" }}>
+          Please fill in all fields
+        </Typography>
+      )}
     </Grid>
   );
 };
