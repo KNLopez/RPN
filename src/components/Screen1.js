@@ -8,7 +8,6 @@ const Screen1 = ({ handleClick }) => {
 
   const handleChange = e => {
     setOperand([e.target.value]);
-    console.log(e.target.value);
   };
 
   const handleSubmit = () => {

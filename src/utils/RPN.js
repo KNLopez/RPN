@@ -1,5 +1,4 @@
 export const RPN = seq => {
-  console.log(seq);
   if (seq.length <= 2) {
     return;
   }

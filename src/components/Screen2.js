@@ -15,7 +15,6 @@ const Screen2 = ({ handleClick, formattedState, solution }) => {
 
   const handleChange = e => {
     const { name, value } = e.target;
-    console.log(name);
     setState({ ...state, [name]: value });
   };
 

@@ -7,7 +7,6 @@ const ReversePolishNotationContainer = () => {
   const [solution, setSolution] = useState();
 
   const getSolution = () => {
-    console.log(stack);
     const response = RPN(stack);
     if (typeof response === "number") setSolution(response);
     else {
@@ -16,7 +15,6 @@ const ReversePolishNotationContainer = () => {
   };
 
   const updateState = stackItem => {
-    console.log(stackItem);
     setStack([...stack, ...stackItem]);
   };
 
