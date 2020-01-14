@@ -21,7 +21,7 @@ const Screen2 = ({ handleClick, formattedState, solution }) => {
 
   const handleSubmit = () => {
     setError(false);
-    if (operand && operator) handleClick([...operand, ...operator]);
+    if (operand && operator) handleClick([operand, operator]);
     else {
       setError(true);
     }

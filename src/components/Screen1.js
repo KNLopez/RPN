@@ -4,10 +4,11 @@ import { StyledButton } from "./shared/StyledButton";
 import { StyledInput } from "./shared/StyledInput";
 
 const Screen1 = ({ handleClick }) => {
-  const [operand, setOperand] = useState("");
+  const [operand, setOperand] = useState([]);
 
   const handleChange = e => {
-    setOperand(e.target.value);
+    setOperand([e.target.value]);
+    console.log(e.target.value);
   };
 
   const handleSubmit = () => {
